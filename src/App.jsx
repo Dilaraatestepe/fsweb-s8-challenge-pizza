@@ -1,10 +1,10 @@
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import "./App.css";
-import Card from "./components/Card";
-import Header from "./components/Header";
 import Order from "./components/Order";
 import HomePage from "./components/HomePage";
 import Success from "./components/Success";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 function App() {
   return (
     <>
@@ -15,6 +15,7 @@ function App() {
         <Route exact path="/order">
           <Header />
           <Order />
+          <Footer />
         </Route>
         <Route exact path="/success">
           <Success />

@@ -1,43 +1,57 @@
-describe("Pizza Sipariş Formu Testleri", () => {
-  beforeEach(() => {
-    cy.visit("http://localhost:5179");
-  });
+describe("tests", () => {
+  it("success test", () => {
+    cy.visit("http://localhost:5173/order");
 
-  it("Ad soyad alanına metin girişi yapılabiliyor", () => {
-    const fullName = "Dilara Ates";
+    cy.get('[data-cy="error-size"]').check("orta").should("be.checked");
 
-    cy.get('textarea[name="fullName"]', { timeout: 4000 })
-      .type(fullName)
-      .should("have.value", fullName);
-  });
+    cy.get('[data-cy="error-extra-item-pepperoni"]')
+      .check()
+      .should("be.checked");
 
-  it("Birden fazla malzeme seçilebiliyor", () => {
-    const malzemeler = ["pepperoni", "sosis", "domates"];
+    cy.get('[data-cy="error-extra-item-sosis"]').check().should("be.checked");
 
-    malzemeler.forEach((malzeme) => {
-      cy.get(`input[name="${malzeme}"]`).check();
-    });
+    cy.get('[data-cy="error-extra-item-kanada-jambonu"]')
+      .check()
+      .should("be.checked");
 
-    malzemeler.forEach((malzeme) => {
-      cy.get(`input[name="${malzeme}"]`).should("be.checked");
-    });
-  });
+    cy.get('[data-cy="error-extra-item-tavuk-izgara"]')
+      .check()
+      .should("be.checked");
 
-  it("Form gönderilebiliyor", () => {
-    const fullName = "Dilara Ates";
-    const size = "orta";
+    cy.get('[data-cy="error-fullName"]').type("Dilara Atestepe");
 
-    cy.get('textarea[name="fullName"]').type(fullName);
-
-    cy.get(`input[name="size"][value="${size}"]`).check();
-
-    const malzemeler = ["pepperoni", "sosis"];
-    malzemeler.forEach((malzeme) => {
-      cy.get(`input[name="${malzeme}"]`).check();
-    });
-
-    cy.get('button[type="submit"]').click();
+    cy.get('button[type="submit"]').should("not.be.disabled").click();
 
     cy.url().should("include", "/success");
+  });
+
+  it("inputs are not to be an empty", () => {
+    cy.visit("http://localhost:5173/order");
+
+    cy.get('[data-cy="error-fullName"]')
+      .type("Hakan Sahin")
+      .should("not.be.empty");
+
+    cy.get('[data-cy="error-note"]')
+      .type("bol sosisli olsun")
+      .should("not.be.empty");
+  });
+
+  it("can checked more than 1 extra", () => {
+    cy.visit("http://localhost:5173/order");
+
+    cy.get('[data-cy="error-extra-item-pepperoni"]')
+      .check()
+      .should("be.checked");
+
+    cy.get('[data-cy="error-extra-item-sosis"]').check().should("be.checked");
+
+    cy.get('[data-cy="error-extra-item-kanada-jambonu"]')
+      .check()
+      .should("be.checked");
+
+    cy.get('[data-cy="error-extra-item-tavuk-izgara"]')
+      .check()
+      .should("be.checked");
   });
 });

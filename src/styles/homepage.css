@@ -1,8 +1,11 @@
-.homepage-body {
-  background: url("../../images/Iteration-1-images/home-banner.png");
+.main-page-section {
+  background: url("../../images/iteration-1-images/home-banner.png");
   background-repeat: no-repeat;
   background-size: cover;
   overflow-x: hidden;
+  padding-right: 22rem;
+  padding-left: 22rem;
+  padding-bottom: 22rem;
 }
 
 .main-logo {
@@ -40,6 +43,24 @@
   font-weight: 700;
   font-style: normal;
   cursor: pointer;
+}
+
+.nav-menu {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-menu-item {
+  margin-left: 1rem;
+  margin-right: 3rem;
+}
+
+.qw {
+  margin-left: 1rem;
 }
 
 @media only screen and (max-width: 480px) {
