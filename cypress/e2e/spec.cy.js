@@ -29,7 +29,7 @@ describe("tests", () => {
     cy.visit("http://localhost:5173/order");
 
     cy.get('[data-cy="error-fullName"]')
-      .type("Hakan Sahin")
+      .type("Dilara Atestepe")
       .should("not.be.empty");
 
     cy.get('[data-cy="error-note"]')

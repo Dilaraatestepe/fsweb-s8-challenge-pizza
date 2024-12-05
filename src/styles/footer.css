@@ -6,6 +6,9 @@ footer {
   padding: 0;
   color: white;
   border: 1px solid black;
+  font-weight: 300;
+  font-family: "Barlow", serif;
+  font-style: normal;
 }
 
 .main-footer {
@@ -39,11 +42,20 @@ footer {
 }
 
 .location {
+  display: flex;
+  flex-direction: row;
   margin-top: 1.5rem;
+}
+
+.mail {
+  display: flex;
+  align-items: center;
 }
 
 .phone {
   margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
 }
 
 .pizza-list {

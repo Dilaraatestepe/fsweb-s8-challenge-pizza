@@ -1,7 +1,3 @@
-/* * {
-  border: 1px solid black;
-} */
-
 .card {
   border-top: 1px solid black;
   margin: 0 auto;
@@ -76,6 +72,7 @@
   padding-bottom: 1rem;
   line-height: 2rem;
   width: 17rem;
+  background-color: #faf7f2;
 }
 
 .summary-row {
